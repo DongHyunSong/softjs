@@ -4,7 +4,6 @@ Frequently and useful JS libraries.
 
 1. string.js
   - strstr
-  - 
   
 2. date.js
   - getDateofYear
