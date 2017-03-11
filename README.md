@@ -2,14 +2,14 @@
 
 Frequently and useful JS libraries.
 
-1. string.js
+1. string
   - strstr
   
-2. date.js
+2. date
   - getDateofYear
   - Y-m-d formatted
 
-3. style.js
+3. style
   - random color
 
-4. DOM API
+4. file system
