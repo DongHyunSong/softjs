@@ -1,9 +1,9 @@
 
 var sofs = new Function();
 
-sofs.prototype.query = function(post_body) {
+sofs.prototype.query = function(obj) {
 	
-	var params = "data="+encodeURIComponent(post_body);
+	var params = "data="+encodeURIComponent(JSON.stringify(obj));
 	
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "sofs.php", false);
@@ -13,22 +13,33 @@ sofs.prototype.query = function(post_body) {
 	return xhr.responseText;
 }
 
-sofs.prototype.fread = function(file_path) {
+sofs.prototype.fread = function(fpath) {
+	
+	var obj = new Object();
+	obj.fmode = "fread";
+	obj.fpath = fpath;
+	
+	return this.query(obj);
+}
+
+sofs.prototype.fwrite = function(fpath, fbody) {
+
+	var obj = new Object();
+	obj.fmode = "fread";
+	obj.fpath = fpath;
+	obj.fbody = fbody;
+	
+	return this.query(obj);
+}
+
+sofs.prototype.fappend = function(fpath, fbody) {
 
 }
 
-sofs.prototype.fwrite = function(file_path, file_body) {
+sofs.prototype.fexist = function(fpath) {
 
 }
 
-sofs.prototype.fappend = function(file_path, file_body) {
-
-}
-
-sofs.prototype.fexist = function(file_path) {
-
-}
-
-sofs.prototype.fsize = function(file_path) {
+sofs.prototype.fsize = function(fpath) {
 
 }
