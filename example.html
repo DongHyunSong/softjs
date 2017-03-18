@@ -1,0 +1,15 @@
+<script src="sofs.js"></script>
+
+<script>
+
+var fs = new sofs();
+
+fs.fwrite("test.txt", "Hello");
+alert("File Content : " + fs.fread("test.txt"))
+
+fs.fappend("test.txt", " World~!");
+alert("File Content : " + fs.fread("test.txt"))
+
+alert("File Size : " + fs.fsize("test.txt"))
+
+</script>	

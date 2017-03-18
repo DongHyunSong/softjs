@@ -1,8 +1,8 @@
 
 var sofs = new Function();
 
-sofs.prototype.query = function(obj) {
-	
+sofs.prototype.query = function(obj)
+{
 	var params = "data="+encodeURIComponent(JSON.stringify(obj));
 	
 	var xhr = new XMLHttpRequest();
@@ -13,8 +13,8 @@ sofs.prototype.query = function(obj) {
 	return xhr.responseText;
 }
 
-sofs.prototype.fread = function(fpath) {
-	
+sofs.prototype.fread = function(fpath)
+{
 	var obj = new Object();
 	obj.fmode = "fread";
 	obj.fpath = fpath;
@@ -22,24 +22,36 @@ sofs.prototype.fread = function(fpath) {
 	return this.query(obj);
 }
 
-sofs.prototype.fwrite = function(fpath, fbody) {
-
+sofs.prototype.fwrite = function(fpath, fbody)
+{
 	var obj = new Object();
-	obj.fmode = "fread";
+	obj.fmode = "fwrite";
 	obj.fpath = fpath;
 	obj.fbody = fbody;
 	
 	return this.query(obj);
 }
 
-sofs.prototype.fappend = function(fpath, fbody) {
-
+sofs.prototype.fappend = function(fpath, fbody)
+{
+	var obj = new Object();
+	obj.fmode = "fappend";
+	obj.fpath = fpath;
+	obj.fbody = fbody;
+	
+	return this.query(obj);
 }
 
-sofs.prototype.fexist = function(fpath) {
-
+sofs.prototype.fsize = function(fpath)
+{
+	var obj = new Object();
+	obj.fmode = "fsize";
+	obj.fpath = fpath;
+	
+	return this.query(obj);
 }
 
-sofs.prototype.fsize = function(fpath) {
+sofs.prototype.fexist = function(fpath)
+{
 
 }
